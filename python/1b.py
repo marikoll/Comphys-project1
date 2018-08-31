@@ -1,7 +1,7 @@
 import numpy as np
 import time
 
-n = 100000
+n = 10
 
 x = np.linspace(0,1,n+2)
 h = 1./(n+1)
@@ -37,12 +37,15 @@ for i in range(1,n):
 	#cof      = c[-i-1]/b[-i]
 	#c[-i-1] -= cof*b[-i]
 	d[-i-2] -= (c[-i-1]/b[-i])*d[-i-1]
+	#d[-i-2] = (d[-i-2] - (c[-i-1]/b[-i])*d[-i-1])/b[-i]
+	#d[n-1] = d[n-1]-(c[n-2]/b[n-1])*d[n-1]
+
 
 d[1:-1] = d[1:-1]/b
 end = time.time()
 
 print(end-start)
 
-#import matplotlib.pyplot as plt
-#plt.plot(x,u,x,d)
-#plt.show()
+import matplotlib.pyplot as plt
+plt.plot(x,u,x,d)
+plt.show()
