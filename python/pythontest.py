@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-n = 1000
+n = 10
 
 
 h = 1./(n+1)
@@ -25,6 +25,8 @@ for i in range(1,n): # første steg i gausisk eliminasjon. renser a
     a[i] -= cof*b[i-1]
     b[i] -= cof*c[i-1]
     d[i] -= cof*d[i-1]
+
+#x = np.array()
     
 
     
